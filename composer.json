@@ -1,0 +1,42 @@
+{
+    "name": "hgabka/kunstmaan-lucene-bundle",
+    "type": "kunstmaan-bundle",
+    "description": "Kunstmaan Lucene bundle",
+    "keywords": [
+      "search",
+      "lucene"
+    ],
+    "homepage": "https://github.com/hgabka/kunstmaan-lucene-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabe",
+            "email": "hgabka@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "~5.5|~7.0",
+		"egeloen/lucene-search-bundle": "~1.0",
+        "kunstmaan/bundles-cms": "dev-master",
+    },
+    "autoload": {
+        "psr-4": {
+            "Hgabka\\LuceneBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webtown\\LuceneBundle\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+		"format": "phpcbf --standard=psr2 src/"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
