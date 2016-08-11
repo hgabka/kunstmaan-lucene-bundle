@@ -1,0 +1,39 @@
+parameters:
+    kunstmaan_node_search.search_service.class: Hgabka\LuceneBundle\Services\SearchService
+    ivory_lucene_search.class: Hgabka\LuceneBundle\Lucene\LuceneManager
+    kunstmaan_search.search_provider: Lucene
+    kunstmaan_node_search.search_configuration.node.class: Hgabka\LuceneBundle\Configuration\NodePagesConfiguration
+
+services:
+    hgabka_lucene.search_provider.lucene:
+        class: Hgabka\LuceneBundle\Provider\SearchProvider
+        arguments: ['@ivory_lucene_search', '%hgabka_lucene.index_path%', '@event_dispatcher']
+        tags:
+            - { name: kunstmaan_search.search_provider, alias: Lucene }
+
+    hgabka_lucene.event_listener.node:
+        class: Hgabka\LuceneBundle\EventListener\NodeIndexListener
+        arguments: ['@doctrine']
+        tags:
+            - { name: kernel.event_listener, method: onIndex, event: hgabka_lucene.index_document }
+
+    hgabka_lucene.event_listener.entity:
+        class: Hgabka\LuceneBundle\EventListener\EntityIndexListener
+        tags:
+            - { name: kernel.event_listener, method: onIndex, event: hgabka_lucene.index_document }
+
+    hgabka_lucene.search.node:
+        class: Hgabka\LuceneBundle\Search\NodeSearcher
+        arguments:
+            - '@kunstmaan_search.search'
+            - '@security.token_storage'
+            - '@kunstmaan_admin.domain_configuration'
+        calls:
+            - [ setIndexName, ['%kunstmaan_node_search.indexname%']]
+            - [ setIndexType, ['%kunstmaan_node_search.indextype%']]
+
+    hgabka_lucene.menu.settings:
+        class: Hgabka\LuceneBundle\Menu\SettingsMenuAdaptor
+        arguments: ['@security.authorization_checker']
+        tags:
+            -  { name: 'kunstmaan_admin.menu.adaptor' }

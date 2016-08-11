@@ -1,0 +1,9 @@
+settings:
+    lucene_index: Kereső index
+
+hgabka_lucene:
+    regenerate: Index újragenerálása
+    success:
+        regenerate_index: Sikeresen létrejöttek az index fájlok!
+    error:
+        regenerate_index: 'Nem sikerült létrehozni az index fájlokat: %error%'

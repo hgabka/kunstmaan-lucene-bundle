@@ -1,0 +1,4 @@
+HgabkaLuceneBundle_settings:
+    resource: '@HgabkaLuceneBundle/Controller/SettingsController.php'
+    type:     annotation
+    prefix:   /admin/settings/search
