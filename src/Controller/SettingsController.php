@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class SettingsController extends BaseSettingsController
 {
     /**
-     * @Route("/index", name="hgabkaLuceneBundle_settings_index")
+     * @Route("/index", name="hgabka_lucene_bundle_settings_index")
      */
     public function indexAction()
     {
@@ -18,7 +18,7 @@ class SettingsController extends BaseSettingsController
     }
 
     /**
-     * @Route("/regenerate", name="hgabkaLuceneBundle_settings_regenerate")
+     * @Route("/regenerate", name="hgabka_lucene_bundle_settings_regenerate")
      */
     public function regenerateAction()
     {

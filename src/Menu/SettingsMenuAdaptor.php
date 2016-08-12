@@ -28,7 +28,7 @@ class SettingsMenuAdaptor implements MenuAdaptorInterface
         if (!is_null($parent) && $parent->getUniqueId() === 'settings' && $this->authorizationChecker->isGranted('ROLE_SUPER_ADMIN')) {
             $menuItem = new MenuItem($menu);
             $menuItem
-                ->setRoute('HgabkaLuceneBundle_settings_index')
+                ->setRoute('hgabka_lucene_bundle_settings_index')
                 ->setUniqueId('lucene_index')
                 ->setLabel('settings.lucene_index')
                 ->setParent($parent)
