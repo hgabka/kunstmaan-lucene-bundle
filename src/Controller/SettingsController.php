@@ -40,6 +40,6 @@ class SettingsController extends BaseSettingsController
             ]));
         }
 
-        return $this->redirectToRoute('HgabkaLuceneBundle_settings_index');
+        return $this->redirectToRoute('hgabka_lucene_bundle_settings_index');
     }
 }
