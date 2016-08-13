@@ -50,7 +50,7 @@ class LuceneAdapter implements SearcherRequestAdapterInterface
 
     public function getSlice($offset, $length)
     {
-        return array_slice($this->result, $offset, $length);
+        return array_slice(empty($this->result) ? [] : $this->result, $offset, $length);
     }
 
     public function getSuggestions()
