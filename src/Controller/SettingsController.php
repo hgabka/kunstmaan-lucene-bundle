@@ -12,7 +12,7 @@ class SettingsController extends BaseSettingsController
      */
     public function indexAction()
     {
-        $this->checkPermission();
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
         return $this->render('HgabkaLuceneBundle:Settings:index.html.twig');
     }
@@ -22,7 +22,7 @@ class SettingsController extends BaseSettingsController
      */
     public function regenerateAction()
     {
-        $this->checkPermission();
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
         $searchConfigurationChain = $this->get('kunstmaan_search.search_configuration_chain');
 
