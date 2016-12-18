@@ -2,12 +2,15 @@ parameters:
     kunstmaan_node_search.search_service.class: Hgabka\LuceneBundle\Services\SearchService
     ivory_lucene_search.class: Hgabka\LuceneBundle\Lucene\LuceneManager
     kunstmaan_search.search_provider: Lucene
-    kunstmaan_node_search.search_configuration.node.class: Hgabka\LuceneBundle\Configuration\NodePagesConfiguration
+    kunstmaan_node_search.search_configuration.node.class: Hgabka\LuceneBundle\Configuration\NodePagesConfiguration 
 
 services:
+    hgabka_lucene_search:
+        class: Hgabka\LuceneBundle\Lucene\LuceneManager
+
     hgabka_lucene.search_provider.lucene:
         class: Hgabka\LuceneBundle\Provider\SearchProvider
-        arguments: ['@ivory_lucene_search', '%hgabka_lucene.index_path%', '@event_dispatcher']
+        arguments: ['@hgabka_lucene_search', '%hgabka_lucene.index_path%', '@event_dispatcher']
         tags:
             - { name: kunstmaan_search.search_provider, alias: Lucene }
 

@@ -2,7 +2,7 @@
 
 namespace Hgabka\LuceneBundle\Provider;
 
-use Ivory\LuceneSearchBundle\Model\LuceneManager;
+use Hgabka\LuceneBundle\Lucene\LuceneManager;
 use Kunstmaan\SearchBundle\Provider\SearchProviderInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Hgabka\LuceneBundle\Event as EventsNs;
