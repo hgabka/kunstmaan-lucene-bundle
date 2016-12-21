@@ -19,7 +19,7 @@ class LuceneAdapter implements SearcherRequestAdapterInterface
         $this->searcher = $searcher;
     }
 
-    public function getNbResults()
+    protected function getResult()
     {
         if (is_null($this->result)) {
             $this->result = [];
@@ -45,12 +45,19 @@ class LuceneAdapter implements SearcherRequestAdapterInterface
             }
         }
 
-        return count($this->result);
+        return $this->result;
+    }
+
+    public function getNbResults()
+    {
+        return count($this->getResult());
     }
 
     public function getSlice($offset, $length)
     {
-        return array_slice(empty($this->result) ? [] : $this->result, $offset, $length);
+        $result = $this->getResult();
+
+        return array_slice(empty($result) ? [] : $result, $offset, $length);
     }
 
     public function getSuggestions()
