@@ -17,8 +17,14 @@
   "require": {
     "php" : "~5.5|~7.0",
     "egeloen/lucene-search-bundle": "~2.0",
-    "zendframework/zendsearch": "@dev"
+    "hgabka/zendsearch": "~2.0"
   },
+  "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:hgabka/Zendsearch.git"
+        }
+  ],
   "autoload": {
     "psr-4": {
       "Hgabka\\LuceneBundle\\": "src"
